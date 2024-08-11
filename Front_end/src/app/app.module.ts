@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminDashbordComponent } from './admin-dashbord/admin-dashbord.component';
+import { AdminDashbordComponent } from './DASHBORD-COMPONENT/admin-dashbord/admin-dashbord.component';
 import { SignUpComponentComponent } from './sign-up-component/sign-up-component.component';
 import { LoginComponentComponent } from './login-component/login-component.component';
 import {ReactiveFormsModule} from "@angular/forms";
@@ -15,7 +15,8 @@ import {HttpClientModule} from "@angular/common/http";
 
 import {RouterLink} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { UserComponentComponent } from './user-component/user-component.component';
+import { UserDashbordComponent } from './DASHBORD-COMPONENT/user-dashbord/user-dashbord.component';
+import { TechnicianDashbordComponent } from './DASHBORD-COMPONENT/technician-dashbord/technician-dashbord.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UserComponentComponent } from './user-component/user-component.componen
     AdminDashbordComponent,
     SignUpComponentComponent,
     LoginComponentComponent,
-    UserComponentComponent
+    UserDashbordComponent,
+    TechnicianDashbordComponent
   ],
   imports: [
     BrowserModule,
