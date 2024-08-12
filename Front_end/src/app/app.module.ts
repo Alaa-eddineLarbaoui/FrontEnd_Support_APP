@@ -18,8 +18,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { UserDashbordComponent } from './DASHBORD-COMPONENT/user-dashbord/user-dashbord.component';
 import { TechnicianDashbordComponent } from './DASHBORD-COMPONENT/technician-dashbord/technician-dashbord.component';
 import { UserListComponent } from './User_Component/user-list/user-list.component';
-import { UserFormComponent } from './User_Component/user-form/user-form.component';
 import {InterceptorService} from "./Services/interceptor.service";
+import { UserFormComponent } from './User_Component/user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import {InterceptorService} from "./Services/interceptor.service";
     LoginComponentComponent,
     UserDashbordComponent,
     TechnicianDashbordComponent,
+    UserListComponent,
     UserListComponent,
     UserFormComponent
   ],
