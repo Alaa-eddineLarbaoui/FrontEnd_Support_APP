@@ -39,20 +39,21 @@ export class LoginComponentComponent implements OnInit{
       const person:LoginRequest  = this.loginForm.value;
       this.srv.Login(person).subscribe({
         next: (res: any) => {
-          localStorage.setItem('jwtData', JSON.stringify(res));
 
+          let result = JSON.stringify(res.token)
+          localStorage.setItem('jwt', (result.substring(1,result.length-1)));
 
           const decodedToken: any = jwtDecode(res.token);
-          const roleMap = decodedToken.roles
+          const roleMap = decodedToken.role
           console.log("dkheeeeeeeeeeeeeel")
           console.log(decodedToken)
           console.log(roleMap)
-          if (decodedToken.roles.includes(Erole.ADMIN)) {
+          if (decodedToken.role.includes(Erole.ADMIN)) {
             this.router.navigate(['/admin']);
-          }else if (decodedToken.roles.includes(Erole.TECHNICIEN)) {
+          }else if (decodedToken.role.includes(Erole.TECHNICIEN)) {
             this.router.navigate(['/technicien']);
           }
-          else if (decodedToken.roles.includes(Erole.USER)){
+          else if (decodedToken.role.includes(Erole.USER)){
             console.log("useeeeeeeeeeeerf")
             this.router.navigate(['/user']);
           }

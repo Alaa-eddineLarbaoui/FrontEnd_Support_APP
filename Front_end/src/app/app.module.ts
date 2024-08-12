@@ -8,9 +8,9 @@ import { SignUpComponentComponent } from './sign-up-component/sign-up-component.
 import { LoginComponentComponent } from './login-component/login-component.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
-import {MatAnchor, MatButton, MatButtonModule} from "@angular/material/button";
-import {MatInput, MatInputModule} from "@angular/material/input";
-import {HttpClientModule} from "@angular/common/http";
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 
 import {RouterLink} from "@angular/router";
@@ -19,6 +19,7 @@ import { UserDashbordComponent } from './DASHBORD-COMPONENT/user-dashbord/user-d
 import { TechnicianDashbordComponent } from './DASHBORD-COMPONENT/technician-dashbord/technician-dashbord.component';
 import { UserListComponent } from './User_Component/user-list/user-list.component';
 import { UserFormComponent } from './User_Component/user-form/user-form.component';
+import {InterceptorService} from "./Services/interceptor.service";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,11 @@ import { UserFormComponent } from './User_Component/user-form/user-form.componen
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

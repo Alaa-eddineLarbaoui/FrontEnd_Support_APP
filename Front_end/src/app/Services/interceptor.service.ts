@@ -10,12 +10,16 @@ export class InterceptorService implements HttpInterceptor{
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log("intrceptor !!!!!!!!!!!!!!!!!!!!!")
+
     let token = null;
-    token= localStorage.getItem("Jwt");
+    token= localStorage.getItem("jwt");
     if (token){
-      const cloned=req.clone({setHeaders:{Autorization:`Bearer ${token}`}});
+      const cloned=req.clone({setHeaders:{Authorization:`Bearer ${token}`}});
+      //const cloned=req.clone({headers:req.headers.set('Authorization',`Bearer ${token}`)});
       return next.handle(cloned);
     }
     return next.handle(req);
   }
 }
+
