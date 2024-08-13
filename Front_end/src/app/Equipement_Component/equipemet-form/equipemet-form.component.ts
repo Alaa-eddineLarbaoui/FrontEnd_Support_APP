@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {EquipementService} from "../Services/equipement.service";
-import {Equipement} from "../Models/Equipement";
-import {EquipementStatus} from "../Enums/EquipementStatus";
+import {EquipementStatus} from "../../Enums/EquipementStatus";
+import {EquipementService} from "../../Services/equipement.service";
+import {Equipement} from "../../Models/Equipement";
 
 @Component({
   selector: 'app-equipemet-form',
@@ -30,7 +30,7 @@ export class EquipemetFormComponent implements OnInit{
 
 
 
-  //function ADD USER *****************************************************************
+  //function ADD equipement  *****************************************************************
   saveUser() {
     const FormValue=this.Addequiform.value;
     const equipement : Equipement={
@@ -57,6 +57,9 @@ export class EquipemetFormComponent implements OnInit{
       status:EquipementStatus
     })
   }
+
+
+
 
 }
 

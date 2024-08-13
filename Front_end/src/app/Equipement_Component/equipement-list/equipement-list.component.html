@@ -1,0 +1,22 @@
+<div class="equipement-container container mt-5">
+  <h2 class="text-center mb-4">Liste des Équipements</h2>
+  <div class="row">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let equipement of listEquipement">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{equipement.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{equipement.type}}</h6>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>ID:</strong> {{equipement.id}}</li>
+            <li class="list-group-item"><strong>Date d'achat:</strong> {{equipement.purchase_Date}}</li>
+            <li class="list-group-item"><strong>Description:</strong> {{equipement.description}}</li>
+            <li class="list-group-item"><strong>Status:</strong> {{equipement.status}}</li>
+          </ul>
+        </div>
+        <div class="card-footer text-right">
+          <!-- <button class="btn btn-danger" (click)="deleteEquipement(equipement.id)">Supprimer</button>  -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
