@@ -1,4 +1,4 @@
-import {Erole} from "./Erole";
+import {Erole} from "../Enums/Erole";
 
 export interface User {
   username : string,

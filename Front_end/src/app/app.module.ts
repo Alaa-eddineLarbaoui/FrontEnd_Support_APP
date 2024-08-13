@@ -19,7 +19,8 @@ import { UserDashbordComponent } from './DASHBORD-COMPONENT/user-dashbord/user-d
 import { TechnicianDashbordComponent } from './DASHBORD-COMPONENT/technician-dashbord/technician-dashbord.component';
 import { UserListComponent } from './User_Component/user-list/user-list.component';
 import {InterceptorService} from "./Services/interceptor.service";
-import { UserFormComponent } from './User_Component/user-form/user-form.component';
+import { EquipemetFormComponent } from './equipemet-form/equipemet-form.component';
+import {UserFormComponent} from "./User_Component/user-form/user-form.component";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UserFormComponent } from './User_Component/user-form/user-form.componen
     TechnicianDashbordComponent,
     UserListComponent,
     UserListComponent,
-    UserFormComponent
+    UserFormComponent,
+    EquipemetFormComponent
   ],
   imports: [
     BrowserModule,

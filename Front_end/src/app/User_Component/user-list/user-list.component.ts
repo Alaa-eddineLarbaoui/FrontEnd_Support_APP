@@ -3,7 +3,7 @@ import { UserService } from '../../Services/user.service';
 import { User } from '../../Models/User';
 
 @Component({
-  selector: 'app-user-form',
+  selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
@@ -18,16 +18,10 @@ export class UserListComponent implements OnInit {
     this.getUsers();
   }
 
+
   getUsers(): void {
-    this.userService.ListUsers().subscribe(
-      (data: User[]) => {
-        this.listUser = data;
-        console.log('Fetched users:', data);
-      },
-      (error) => {
-        console.error('Error fetching users:', error);
-        this.errorMessage = 'Unable to fetch users. Please check your permissions.';
-      }
-    );
+    this.userService.ListUsers().subscribe((data: User[]) => {
+      this.listUser = data;
+    });
   }
 }

@@ -1,0 +1,45 @@
+<div class="form-container container mt-5">
+  <h1 class="text-center">Add Equipment</h1>
+  <form [formGroup]="Addequiform" (ngSubmit)="saveUser()" class="mt-4">
+
+    <div class="form-group">
+      <label for="id" type="hidden">ID:</label>
+      <input id="id" formControlName="id" type="hidden" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" type="text" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type:</label>
+      <input id="type" formControlName="type" type="text" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="purchaseDate">Purchase Date:</label>
+      <input id="purchaseDate" formControlName="purchase_Date" type="date" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <select id="status" formControlName="status" class="form-control">
+
+        <option value="ACTIVE">Active</option>
+        <option value="OBSOLETE">Inactive</option>
+        <option value="REPAIR">In Repair</option>
+      </select>
+    </div>
+
+    <div class="btnadd">
+      <button type="submit" class="btn btn-primary btn-block">Add</button>
+    </div>
+
+  </form>
+</div>
