@@ -27,4 +27,13 @@ export class EquipementListComponent implements OnInit{
       this.listEquipement = data;
     });
   }
+
+  deleteEquipement(id: number): void {
+    this.equipementService.deleteEquip(id).subscribe(
+      () => {
+       this.getEquipement()
+      },
+
+    );
+  }
 }

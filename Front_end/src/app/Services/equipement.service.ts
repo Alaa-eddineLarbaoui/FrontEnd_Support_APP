@@ -18,7 +18,7 @@ export class EquipementService {
     return this.http.post(this.api+ 'add',formdata)
   }
   deleteEquip (id:number){
-    return this.http.delete(this.api+'delete'+{id})
+    return this.http.delete(`${this.api}delete/${id}`)
   }
   ListEquips(): Observable<Equipement[]> {
     return this.http.get<Equipement[]>(`${this.api}getAll`);
