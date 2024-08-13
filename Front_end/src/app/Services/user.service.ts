@@ -29,7 +29,7 @@ export class UserService {
 
 
   Adduser(formdata:User){
-    return this.http.post(this.api+ 'signup',formdata)
+    return this.http.post( 'http://localhost:8080/api/auth/signup',formdata)
   }
 
   public updateUser(id:any,inputData:User){

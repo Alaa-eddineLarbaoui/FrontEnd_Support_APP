@@ -5,5 +5,5 @@ export interface User {
   id : number,
   password : string,
   email : string
-  erole:Erole.USER,
+  role:Erole.USER,
 }
