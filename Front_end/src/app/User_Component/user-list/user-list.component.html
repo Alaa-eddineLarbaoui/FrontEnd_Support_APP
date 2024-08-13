@@ -7,12 +7,11 @@
           <h5 class="card-title">{{user.username}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{user.email}}</h6>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><strong>ID:</strong> {{user.id}}</li>
             <li class="list-group-item"><strong>Rôle:</strong> {{user.erole}}</li>
           </ul>
         </div>
         <div class="card-footer text-right">
-         <!-- <button class="btn btn-danger" (click)="deleteUser(user.id)">Supprimer</button>  -->
+         <button class="btn btn-danger" (click)="deleteUser(user.id)">Supprimer</button>
         </div>
       </div>
     </div>

@@ -24,4 +24,12 @@ export class UserListComponent implements OnInit {
       this.listUser = data;
     });
   }
+  deleteUser(id: number): void {
+    this.userService.deleteUser(id).subscribe(
+      () => {
+        this.getUsers()
+      },
+
+    );
+  }
 }
