@@ -1,6 +1,6 @@
 import {Erole} from "../Enums/Erole";
 
-export interface Technicien {
+export interface TechnicienIT {
   username : string,
   id : number,
   password : string,

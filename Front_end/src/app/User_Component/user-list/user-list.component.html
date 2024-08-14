@@ -12,6 +12,10 @@
         </div>
         <div class="card-footer text-right">
          <button class="btn btn-danger" (click)="deleteUser(user.id)">Supprimer</button>
+
+          <a class="btn btn-danger" [routerLink]="'/updateUser/' + user.id">Update</a>
+
+
         </div>
       </div>
     </div>

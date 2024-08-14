@@ -21,7 +21,7 @@ export class UserService {
   }
 
   getUser(idUser:number):Observable<any>{
-    return this.http.get<Event>(`${this.api}/get`+idUser)
+    return this.http.get<Event>(`${this.api}/get/`+idUser)
   }
   deleteUser(id: number): Observable<any> {
     return this.http.delete(`${this.api}/delete/` + id)
@@ -32,8 +32,9 @@ export class UserService {
     return this.http.post( 'http://localhost:8080/api/auth/signup',formdata)
   }
 
-  public updateUser(id:any,inputData:User){
-    return this.http.put(this.api+"user/update/"+id,inputData)
+  public updateUser(id:any,user:User){
+    return this.http.put(this.api+"/update/"+id,user)
   }
+
 
 }
