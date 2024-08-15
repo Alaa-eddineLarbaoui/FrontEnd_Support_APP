@@ -14,7 +14,7 @@ export class UserFormComponent implements OnInit {
   AddUserform!: FormGroup;
   iduser: any;
   usert !: User;
-  isUpdateMode: boolean = false; // To check if the form is in update mode
+  isUpdateMode: boolean = false;
 
 
   constructor(private routes:Router,private userService: UserService, private fb: FormBuilder, private route: ActivatedRoute) {

@@ -24,6 +24,7 @@ import {EquipementListComponent} from "./Equipement_Component/equipement-list/eq
 import {EquipemetFormComponent} from "./Equipement_Component/equipemet-form/equipemet-form.component";
 import { UserUpdateComponent } from './User_Component/user-update/user-update.component';
 import { AddTicketsComponent } from './Ticket_Component/add-tickets/add-tickets.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AddTicketsComponent } from './Ticket_Component/add-tickets/add-tickets.
     EquipementListComponent,
     EquipemetFormComponent,
     UserUpdateComponent,
-    AddTicketsComponent
+    AddTicketsComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,12 @@ import {Equipement} from "../../Models/Equipement";
 import {EquipementService} from "../../Services/equipement.service";
 import {UserService} from "../../Services/user.service";
 import {User} from "../../Models/User";
+import {jwtDecode} from "jwt-decode";
+import {TicketOfSupport} from "../../Models/TicketOfSupport";
+import {TicketService} from "../../Services/ticket.service";
+import {EtatTicket} from "../../Enums/EtatTicket";
+import {TechnicienIT} from "../../Models/TechnicienIT";
+import {Erole} from "../../Enums/Erole";
 
 @Component({
   selector: 'app-add-tickets',
@@ -17,14 +23,12 @@ export class AddTicketsComponent implements OnInit{
   formTicket!:FormGroup;
   equipements !:Equipement[];
   user_id !: number;
-  constructor(private serviceP : PanneService, private fb : FormBuilder, private equipService:EquipementService, private serviceU : UserService) {
+  constructor(private serviceP : PanneService, private fb : FormBuilder, private equipService:EquipementService, private serviceU : UserService, private serviceT : TicketService) {
   }
   ngOnInit(): void {
     this.getpannes();
     this.getEquipements();
 
-    console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhh")
-    console.log(this.equipService.ListEquips())
     this.formTicket = this.fb.group({
       description: [''],
       creation_date: [''],
@@ -32,13 +36,28 @@ export class AddTicketsComponent implements OnInit{
       panne: ['']
     });
 
-    const jwt: any = localStorage.getItem("jwt")
-    const parseJwt =
+    const jwtData = localStorage.getItem('jwt');
+    const username = localStorage.getItem('username');
 
-    this.serviceU.getUser('ousama').subscribe((data : User) => {
-        this.user_id = data.id;
-    })
+    if (jwtData && username) {
+      try {
+        this.serviceU.getUser(username).subscribe(
+          (data: User) => {
+            this.user_id = data.id;
+            console.log("User ID: " + data.id);
+          },
+          (error) => {
+            console.error('Error fetching user:', error);
+          }
+        );
+      } catch (error) {
+        console.error('Error decoding JWT:', error);
+      }
+    } else {
+      console.error('JWT data or username not found in localStorage');
+    }
   }
+
 
   getpannes(){
     this.serviceP.get_pannes().subscribe((data : Panne[]) => {
@@ -53,9 +72,38 @@ export class AddTicketsComponent implements OnInit{
   }
 
 
-  submiting(){
+  submiting() {
+    console.log("---000--- > " + this.user_id)
+    if (this.formTicket.valid) {
+      const formValues = this.formTicket.value;
 
+      const newTicket: TicketOfSupport = {
+        id_Ticket: 0,
+        creation_date: formValues.creation_date,
+        description: formValues.description,
+        etatTicket: EtatTicket.IN_PROGRESS,
+        user: {
+          username : '',
+          id : this.user_id,
+          password : '',
+          email : '',
+          role:Erole.USER,
+
+        },
+        technicienIT: {} as TechnicienIT,
+        equipement: { id: formValues.equipement } as Equipement,
+        panne: {
+          id_panne: formValues.panne,
+          name:''
+        },
+      };
+
+      this.serviceT.addTicktes(newTicket).subscribe(data => {
+        console.log('Ticket added successfully');
+      });
+    }
   }
+
 
 
 }

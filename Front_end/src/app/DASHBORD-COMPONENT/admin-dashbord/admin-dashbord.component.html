@@ -8,9 +8,94 @@
 <app-user-list></app-user-list>
 
 
-
+<app-add-tickets></app-add-tickets>
 -->
 
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="sidebar">
+  <div class="logo-details">
+    <i class='bx bxl-c-plus-plus icon'></i>
+    <!--<div class="logo_name">CodingLab</div>  -->
+    <i class='bx bx-menu' id="btn" ></i>
+  </div>
+  <ul class="nav-list">
+    <li>
+      <i class='bx bx-search' ></i>
+      <input type="text" placeholder="Search...">
+      <span class="tooltip">Search</span>
+    </li>
+
+    <!--*************** MENU ********************-->
+    <li>
+      <a routerLink="main">
+        <i class='bx bx-grid-alt'></i>
+        <span class="links_name">Dashboard</span>
+      </a>
+      <span class="tooltip">Dashboard</span>
+    </li>
+
+    <li>
+      <a routerLink="userc">
+        <i class='bx bx-user' ></i>
+        <span class="links_name">User alaa</span>
+      </a>
+      <span class="tooltip">User</span>
+    </li>
+    <li>
+      <a routerLink="event">
+        <i class='bx bx-calendar'></i>
+        <span class="links_name">Event</span>
+      </a>
+      <span class="tooltip">Event</span>
+    </li>
+
+    <li>
+      <a routerLink="contact">
+        <i class='bx bx-chat' ></i>
+        <span class="links_name">Contact</span>
+      </a>
+      <span class="tooltip">Contact</span>
+    </li>
 
 
-<app-add-tickets></app-add-tickets>
+
+  </ul>
+</div>
+<section class="home-section">
+
+  <!--   //// Header ////   -->
+
+  <div id="header">
+    <div class="header uboxed">
+      <ul class="logo">
+        <li>
+          <img src="https://byjaris.com/img/byjaris.svg" alt="Fimanbol">
+        </li>
+      </ul>
+      <ul class="menu">
+        <li><img src="https://byjaris.com/code/icons/home-alt.svg" alt="Fimanbol"></li>
+        <li><img src="https://byjaris.com/code/icons/menu-alt.svg" alt="Fimanbol"></li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="header-space"></div>
+
+  <!--    Contenu    -->
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+
+
+
+</section>
+
+<script src="https://byjaris.com/code/libs/jquery.min.js"></script>
+<script src="https://byjaris.com/code/libs/wow.js"></script>
+<script></script>
+
+
