@@ -20,8 +20,8 @@ export class UserService {
     return this.http.get<User[]>(`${this.api}/getUsers`);
   }
 
-  getUser(idUser:number):Observable<any>{
-    return this.http.get<Event>(`${this.api}/get/`+idUser)
+  getUser(username:string):Observable<User>{
+    return this.http.get<User>(this.api + "/findByName/" +username);
   }
   deleteUser(id: number): Observable<any> {
     return this.http.delete(`${this.api}/delete/` + id)

@@ -23,7 +23,7 @@ import {UserFormComponent} from "./User_Component/user-form/user-form.component"
 import {EquipementListComponent} from "./Equipement_Component/equipement-list/equipement-list.component";
 import {EquipemetFormComponent} from "./Equipement_Component/equipemet-form/equipemet-form.component";
 import { UserUpdateComponent } from './User_Component/user-update/user-update.component';
-import { AddTicketsComponent } from './add-tickets/add-tickets.component';
+import { AddTicketsComponent } from './Ticket_Component/add-tickets/add-tickets.component';
 
 @NgModule({
   declarations: [

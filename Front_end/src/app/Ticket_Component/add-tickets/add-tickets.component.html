@@ -1,0 +1,26 @@
+<form [formGroup]="formTicket" (ngSubmit)="submiting()">
+  <div>
+    <!-- Description Input
+    <label for="description">Description</label>
+    <input id="description" formControlName="description" type="text" />  -->
+
+    <!-- Creation Date Input -->
+    <label for="creation_date">Creation Date</label>
+    <input id="creation_date" formControlName="creation_date" type="date" />
+
+    <!-- Equipement Select -->
+    <label for="equipement">Equipement</label>
+    <select id="equipement" formControlName="equipement">
+      <option *ngFor="let equip of equipements" [value]="equip.id">{{equip.type}}</option>
+    </select>
+
+    <!-- Panne Select -->
+    <label for="panne">Panne</label>
+    <select id="panne" formControlName="panne">
+      <option *ngFor="let panne of ListPanne" [value]="panne.id_panne">{{panne.name}}</option>
+    </select>
+
+    <!-- Submit Button -->
+    <button type="submit">Submit</button>
+  </div>
+</form>

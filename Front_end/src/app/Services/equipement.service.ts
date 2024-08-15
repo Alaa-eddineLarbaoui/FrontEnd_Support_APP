@@ -10,6 +10,7 @@ import {Observable} from "rxjs";
 export class EquipementService {
 
   api = `http://localhost:8080/api/equipement/`
+  api_getAll_Equi='http://localhost:8080/api/equipement/getAll'
 
   constructor(private http: HttpClient) {
   }
@@ -21,6 +22,6 @@ export class EquipementService {
     return this.http.delete(`${this.api}delete/${id}`)
   }
   ListEquips(): Observable<Equipement[]> {
-    return this.http.get<Equipement[]>(`${this.api}getAll`);
+    return this.http.get<Equipement[]>(this.api_getAll_Equi);
   }
 }
