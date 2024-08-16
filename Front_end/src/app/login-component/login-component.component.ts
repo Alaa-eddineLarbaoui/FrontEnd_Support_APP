@@ -40,10 +40,11 @@ export class LoginComponentComponent implements OnInit{
       this.srv.Login(person).subscribe({
         next: (res: any) => {
 
-          let result = JSON.stringify(res.token)
-          localStorage.setItem('jwt', (result.substring(1,result.length-1)));
+          localStorage.setItem('jwtData', JSON.stringify(res));
 
           const decodedToken: any = jwtDecode(res.token);
+          console.log('Decoded Token:', decodedToken);
+
           const roleMap = decodedToken.role
           console.log("dkheeeeeeeeeeeeeel")
           console.log(decodedToken)

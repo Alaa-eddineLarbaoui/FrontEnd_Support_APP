@@ -1,0 +1,15 @@
+<div class="form-container container mt-5">
+  <h1 class="text-center">Add Panne</h1>
+  <form [formGroup]="AddPanneform" (ngSubmit)="savepanne()" class="mt-4">
+
+    <div class="form-group">
+      <label for="username">Name:</label>
+      <input id="username" formControlName="username" type="text" class="form-control">
+    </div>
+
+    <div class="btnadd">
+      <button type="submit" class="btn btn-primary btn-block">Add</button>
+    </div>
+
+  </form>
+</div>

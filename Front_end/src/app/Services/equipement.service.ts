@@ -24,4 +24,18 @@ export class EquipementService {
   ListEquips(): Observable<Equipement[]> {
     return this.http.get<Equipement[]>(this.api_getAll_Equi);
   }
+
+     getEquipById(id: number): Observable<Equipement> {
+       return this.http.get<Equipement>(`${this.api}get/${id}`)
+     }
+
+
+
+
+  getUser(idUser:number):Observable<any>{
+    return this.http.get<User>(`${this.api}/get/`+idUser)
+  }
+  public updateEquip(id:number,equipement:Equipement){
+    return this.http.put(this.api+"update/"+id,equipement)
+  }
 }

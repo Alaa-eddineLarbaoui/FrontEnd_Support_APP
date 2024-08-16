@@ -1,0 +1,55 @@
+.form-container {
+  background-color: #f3e8ff; /* Light purple background */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #4a148c; /* Dark purple for the title */
+}
+
+.form-group label {
+  color: #7b1fa2; /* Medium purple for labels */
+  font-weight: bold;
+}
+
+.form-control {
+  border: 2px solid #7b1fa2; /* Medium purple border for inputs */
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #ffffff; /* White background for inputs */
+  color: #4a148c; /* Dark purple text color */
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #4a148c; /* Dark purple border on focus */
+  box-shadow: 0 0 5px rgba(122, 89, 179, 0.5);
+}
+
+.btnupdate {
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background-color: #7b1fa2; /* Purple for primary button */
+  border-color: #7b1fa2;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #6a1b9a; /* Darker purple on hover */
+  border-color: #6a1b9a;
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 10px rgba(122, 89, 179, 0.5);
+}
+
+.btn-block {
+  width: 100%; /* Full width button */
+}

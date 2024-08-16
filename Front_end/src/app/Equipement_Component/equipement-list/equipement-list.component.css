@@ -1,0 +1,57 @@
+.equipement-container {
+  background-color: #f3e8ff; /* Light purple background for the entire container */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.equipement-card {
+  border: 2px solid #7b1fa2; /* Medium purple border for the cards */
+  border-radius: 10px;
+  background-color: #ffffff; /* White background inside the card */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.equipement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  color: #4a148c; /* Dark purple for the title */
+}
+
+.card-subtitle {
+  color: #7b1fa2; /* Medium purple for the subtitle */
+}
+
+.list-group-item {
+  background-color: #f3e8ff; /* Light purple background for list items */
+  border-color: #7b1fa2; /* Border color matching the card */
+}
+
+.card-footer {
+  background-color: #ffffff; /* Keep the footer background white */
+  padding-top: 10px;
+}
+
+.card-footer .btn {
+  width: 48%; /* Ensures the buttons are of equal width and spaced */
+}
+
+.btn-danger {
+  background-color: #c2185b; /* Red with a hint of purple for danger buttons */
+  border-color: #c2185b;
+}
+
+.btn-danger:hover {
+  background-color: #b71c1c; /* Darker red on hover */
+}
+
+.btn-primary {
+  background-color: #7b1fa2; /* Purple for primary action (Update) */
+  border-color: #7b1fa2;
+}
+
+.btn-primary:hover {
+  background-color: #6a1b9a; /* Darker purple on hover */
+}

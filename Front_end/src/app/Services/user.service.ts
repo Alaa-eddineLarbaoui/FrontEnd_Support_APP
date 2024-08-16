@@ -20,8 +20,8 @@ export class UserService {
     return this.http.get<User[]>(`${this.api}/getUsers`);
   }
 
-  getUser(username:string):Observable<User>{
-    return this.http.get<User>(this.api + "/findByName/" +username);
+  getUser(idUser:number):Observable<any>{
+    return this.http.get<User>(`${this.api}/get/`+idUser)
   }
   deleteUser(id: number): Observable<any> {
     return this.http.delete(`${this.api}/delete/` + id)
@@ -36,5 +36,8 @@ export class UserService {
     return this.http.put(this.api+"/update/"+id,user)
   }
 
+  get_user(username : string):Observable<User>{
+    return  this.http.get<User>(this.api + "/get_user/" + username);
+  }
 
 }

@@ -1,42 +1,38 @@
-<div class="blank-layout-container justify-content-center align-items-center bg-light-primary ">
-  <div class="position-relative row w-100 h-100 bg-gradient justify-content-center">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div id="container" class="col-lg-4 d-flex align-items-center">
-        <mat-card class="cardWithShadow boxed-auth">
-          <mat-card-content class="p-32">
-            <div class="text-center">
-              <a [routerLink]="['/login']">
-                <!--  <img src="/assets/EVENTS.png" class="align-middle m-2" alt="logo" />  -->
-              </a>
-            </div>
-
-            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Username</mat-label>
-            <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input formControlName="username" matInput />
-            </mat-form-field>
-            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Password</mat-label>
-            <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input formControlName="password" type="password" matInput />
-            </mat-form-field>
-
-
-          </mat-card-content>
-          <mat-card-actions>
-            <div class="div-50">
-              <button [routerLink]="['/']" type="submit" mat-raised-button color="primary">Login</button>
-            </div>
-            <div class="div-50">
-              <a routerLink="/signup" mat-raised-button color="accent">Sign Up</a>
-            </div>
-
-
-          </mat-card-actions>
-
-
-        </mat-card>
-
-      </div>
-    </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+  <link rel="stylesheet" href="./login-component.component.css">
+</head>
+<body>
+<div class="container">
+  <div class="screen">
+    <div class="screen__content">
+      <form class="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="login__field">
+          <i class="login__icon fas fa-user"></i>
+          <input type="text" formControlName="username" class="login__input" placeholder="User name / Email">
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-lock"></i>
+          <input type="password" formControlName="password" class="login__input" placeholder="Password">
+        </div>
+        <button class="button login__submit" type="submit">
+          <span class="button__text">Log In Now</span>
+          <i class="button__icon fas fa-chevron-right"></i>
+        </button>
+      </form>
+    </div>
+    <div class="screen__background">
+      <span class="screen__background__shape screen__background__shape4"></span>
+      <span class="screen__background__shape screen__background__shape3"></span>
+      <span class="screen__background__shape screen__background__shape2"></span>
+      <span class="screen__background__shape screen__background__shape1"></span>
+    </div>
   </div>
 </div>
-
+</body>
+</html>

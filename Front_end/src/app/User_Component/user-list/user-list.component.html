@@ -2,7 +2,7 @@
   <h2 class="text-center mb-4">Liste des Utilisateurs</h2>
   <div class="row">
     <div class="col-md-6 col-lg-4 mb-4" *ngFor="let user of listUser">
-      <div class="card h-100">
+      <div class="card user-card h-100">
         <div class="card-body">
           <h5 class="card-title">{{user.username}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{user.email}}</h6>
@@ -10,17 +10,11 @@
             <li class="list-group-item"><strong>Rôle:</strong> {{user.role}}</li>
           </ul>
         </div>
-        <div class="card-footer text-right">
-          <div class="Buttons">
-          <div>
-            <button class="btn btn-danger" (click)="deleteUser(user.id)">Supprimer</button>
+        <div class="card-footer">
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Supprimer</button>
+            <a class="btn btn-primary btn-sm" [routerLink]="'/updateUser/' + user.id">Update</a>
           </div>
-          <div>
-            <a class="btn btn-danger" [routerLink]="'/updateUser/' + user.id">Update</a>
-          </div>
-          </div>
-
-
         </div>
       </div>
     </div>

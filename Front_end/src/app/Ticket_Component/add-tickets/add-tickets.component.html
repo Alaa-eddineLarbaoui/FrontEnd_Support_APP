@@ -1,26 +1,19 @@
-<form [formGroup]="formTicket" (ngSubmit)="submiting()">
-  <div>
-    <!-- Description Input
-    <label for="description">Description</label>
-    <input id="description" formControlName="description" type="text" />  -->
-
-    <!-- Creation Date Input -->
-    <label for="creation_date">Creation Date</label>
-    <input id="creation_date" formControlName="creation_date" type="date" />
+<form [formGroup]="formTicket" (ngSubmit)="submiting()" class="ticket-form">
+  <div class="form-group">
 
     <!-- Equipement Select -->
-    <label for="equipement">Equipement</label>
-    <select id="equipement" formControlName="equipement">
-      <option *ngFor="let equip of equipements" [value]="equip.id">{{equip.type}}</option>
+    <label for="equipement_id" class="form-label">Equipement</label>
+    <select id="equipement_id" formControlName="equipement_id" class="form-select">
+      <option *ngFor="let equip of equipements" value="{{equip.id}}">{{equip.type}}</option>
     </select>
 
     <!-- Panne Select -->
-    <label for="panne">Panne</label>
-    <select id="panne" formControlName="panne">
-      <option *ngFor="let panne of ListPanne" [value]="panne.id_panne">{{panne.name}}</option>
+    <label for="idPanne" class="form-label">Panne</label>
+    <select id="idPanne" formControlName="idPanne" class="form-select">
+      <option *ngFor="let panne of ListPanne" value="{{panne.idPanne}}">{{panne.name}}</option>
     </select>
 
     <!-- Submit Button -->
-    <button type="submit">Submit</button>
+    <button type="submit" class="submit-btn">Submit</button>
   </div>
 </form>

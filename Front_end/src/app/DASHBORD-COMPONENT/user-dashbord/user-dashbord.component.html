@@ -1,3 +1,77 @@
-<p>Hello user</p>
 
-<app-add-tickets></app-add-tickets>
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="sidebar">
+  <div class="logo-details">
+    <i class='bx bx-support icon'></i>
+    <i class='bx bx-menu' id="btn"></i>
+  </div>
+
+  <ul class="nav-list">
+
+
+    <!--*************** MENU ********************-->
+
+
+    <li>
+      <a routerLink="add-ticket">
+        <i class='bx bx-grid-alt'></i>
+        <span class="links_name">Add Ticket</span>
+      </a>
+      <span class="tooltip">Add Ticket</span>
+    </li>
+
+
+
+    <li>
+      <a routerLink="equipement">
+        <i class='bx bx-calendar'></i>
+        <span class="links_name"></span>
+      </a>
+      <span class="tooltip"></span>
+    </li>
+
+
+
+  </ul>
+</div>
+<section class="home-section">
+
+  <!--   //// Header ////   -->
+
+  <div id="header">
+    <div class="header uboxed">
+      <ul class="logo">
+        <li>
+          <img class="logoo" src="https://cdn-icons-png.flaticon.com/512/8345/8345950.png" alt="Fimanbol">
+        </li>
+      </ul>
+      <ul class="menu">
+        <li><img src="https://byjaris.com/code/icons/home-alt.svg" alt="Fimanbol"></li>
+        <li><img src="https://byjaris.com/code/icons/menu-alt.svg" alt="Fimanbol"></li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="header-space"></div>
+
+  <!--    Contenu    -->
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+
+
+
+</section>
+
+<script src="https://byjaris.com/code/libs/jquery.min.js"></script>
+<script src="https://byjaris.com/code/libs/wow.js"></script>
+<script></script>
+
+
+
+

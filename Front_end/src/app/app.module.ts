@@ -25,6 +25,14 @@ import {EquipemetFormComponent} from "./Equipement_Component/equipemet-form/equi
 import { UserUpdateComponent } from './User_Component/user-update/user-update.component';
 import { AddTicketsComponent } from './Ticket_Component/add-tickets/add-tickets.component';
 import { UserComponent } from './user/user.component';
+import { EquipementUpdateComponent } from './Equipement_Component/equipement-update/equipement-update.component';
+import { EquipementComponent } from './equipement/equipement.component';
+import { UpdateTicketComponent } from './Ticket_Component/update-ticket/update-ticket.component';
+import { ListTicketComponent } from './Ticket_Component/list-ticket/list-ticket.component';
+import { ListPanneComponent } from './Panne_Component/list-panne/list-panne.component';
+import { FormPanneComponent } from './Panne_Component/form-panne/form-panne.component';
+import { UpdatePanneComponent } from './Panne_Component/update-panne/update-panne.component';
+import { PanneComponent } from './panne/panne.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +51,15 @@ import { UserComponent } from './user/user.component';
     EquipemetFormComponent,
     UserUpdateComponent,
     AddTicketsComponent,
-    UserComponent
+    UserComponent,
+    EquipementUpdateComponent,
+    EquipementComponent,
+    UpdateTicketComponent,
+    ListTicketComponent,
+    ListPanneComponent,
+    FormPanneComponent,
+    UpdatePanneComponent,
+    PanneComponent
   ],
   imports: [
     BrowserModule,

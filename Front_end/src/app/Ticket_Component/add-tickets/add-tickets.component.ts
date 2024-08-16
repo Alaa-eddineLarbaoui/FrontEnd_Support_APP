@@ -5,13 +5,9 @@ import {Panne} from "../../Models/panne";
 import {Equipement} from "../../Models/Equipement";
 import {EquipementService} from "../../Services/equipement.service";
 import {UserService} from "../../Services/user.service";
-import {User} from "../../Models/User";
-import {jwtDecode} from "jwt-decode";
-import {TicketOfSupport} from "../../Models/TicketOfSupport";
 import {TicketService} from "../../Services/ticket.service";
-import {EtatTicket} from "../../Enums/EtatTicket";
-import {TechnicienIT} from "../../Models/TechnicienIT";
-import {Erole} from "../../Enums/Erole";
+import {JwtDto} from "../../Models/JwtDto";
+import {TicketDto} from "../../Models/TicketDto";  // Import jwt-decode
 
 @Component({
   selector: 'app-add-tickets',
@@ -23,49 +19,37 @@ export class AddTicketsComponent implements OnInit{
   formTicket!:FormGroup;
   equipements !:Equipement[];
   user_id !: number;
-  constructor(private serviceP : PanneService, private fb : FormBuilder, private equipService:EquipementService, private serviceU : UserService, private serviceT : TicketService) {
-  }
+
+  constructor(private serviceP : PanneService, private fb : FormBuilder, private equipService:EquipementService, private serviceU : UserService, private serviceT : TicketService) {}
+
   ngOnInit(): void {
+    const storedJwtData = localStorage.getItem('jwtData');
+    if (storedJwtData) {
+      const jwtData: JwtDto = JSON.parse(storedJwtData);
+      this.user_id = jwtData.user_id;
+    } else {
+      console.error('JWT data not found in localStorage');
+      // handle the case where JWT is not present
+    }
+
     this.getpannes();
     this.getEquipements();
 
     this.formTicket = this.fb.group({
-      description: [''],
-      creation_date: [''],
-      equipement: [''],
-      panne: ['']
+      equipement_id: [''],
+      idPanne:['']
     });
-
-    const jwtData = localStorage.getItem('jwt');
-    const username = localStorage.getItem('username');
-
-    if (jwtData && username) {
-      try {
-        this.serviceU.getUser(username).subscribe(
-          (data: User) => {
-            this.user_id = data.id;
-            console.log("User ID: " + data.id);
-          },
-          (error) => {
-            console.error('Error fetching user:', error);
-          }
-        );
-      } catch (error) {
-        console.error('Error decoding JWT:', error);
-      }
-    } else {
-      console.error('JWT data or username not found in localStorage');
-    }
   }
 
+  // Function to extract user ID from JWT token
 
   getpannes(){
     this.serviceP.get_pannes().subscribe((data : Panne[]) => {
       this.ListPanne = data;
-    })
+    });
   }
-  getEquipements(){
 
+  getEquipements(){
     this.equipService.ListEquips().subscribe((data :Equipement[])=>{
       this.equipements=data;
     });
@@ -73,37 +57,27 @@ export class AddTicketsComponent implements OnInit{
 
 
   submiting() {
-    console.log("---000--- > " + this.user_id)
+    console.log("userid " + this.user_id);
+    console.log("eId " + this.formTicket.value.equipement_id);
+    console.log("Pid " +  this.formTicket.value.idPanne);
+
     if (this.formTicket.valid) {
-      const formValues = this.formTicket.value;
+      const newTicket :TicketDto = {
+        user_id : this.user_id,
+        equipement_id : this.formTicket.value.equipement_id,
+        panne_id: this.formTicket.value.idPanne,
+      }
 
-      const newTicket: TicketOfSupport = {
-        id_Ticket: 0,
-        creation_date: formValues.creation_date,
-        description: formValues.description,
-        etatTicket: EtatTicket.IN_PROGRESS,
-        user: {
-          username : '',
-          id : this.user_id,
-          password : '',
-          email : '',
-          role:Erole.USER,
-
-        },
-        technicienIT: {} as TechnicienIT,
-        equipement: { id: formValues.equipement } as Equipement,
-        panne: {
-          id_panne: formValues.panne,
-          name:''
-        },
-      };
-
-      this.serviceT.addTicktes(newTicket).subscribe(data => {
-        console.log('Ticket added successfully');
+      this.serviceT.addTicktes(newTicket).subscribe({
+        next: (data) => {
+          console.log('Ticket added successfully');
+        },error: (error) => {
+          console.error('Error adding ticket:', error);
+          if (error.status === 403) {
+            console.error('Access denied. Please check your permissions.');
+          }
+        }
       });
     }
   }
-
-
-
 }

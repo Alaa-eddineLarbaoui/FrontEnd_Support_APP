@@ -1,4 +1,4 @@
 export interface Panne {
-  id_panne : number
+  idPanne : number
   name : string
 }

@@ -15,7 +15,7 @@ export class UserUpdateComponent implements OnInit {
   AddUserform!: FormGroup;
   iduser: any;
   usert !: User;
-  isUpdateMode: boolean = false; // To check if the form is in update mode
+  isUpdateMode: boolean = false;
 
 
   constructor(private routes: Router, private userService: UserService, private fb: FormBuilder, private route: ActivatedRoute) {
@@ -23,15 +23,15 @@ export class UserUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.AddUserform = this.fb.group({
-      id: '',           // Field for user ID
+      id: '',
       username: '',
       password: '',
       email: '',
     });
     this.iduser = this.route.snapshot.paramMap.get("id")
     if (this.iduser) {
-      this.isUpdateMode = true; // If ID is present, we are in update mode
-      this.getUser(); // Load the user data to populate the form
+      this.isUpdateMode = true;
+      this.getUser();
     }
   }
 
@@ -52,7 +52,7 @@ export class UserUpdateComponent implements OnInit {
     });
   }
 
-  // Function to clear the form after adding or updating
+  // Function to clear the form after updating
   clearForm() {
     this.AddUserform.reset({
       id: '',        // Reset ID
@@ -68,7 +68,7 @@ export class UserUpdateComponent implements OnInit {
     if (this.iduser) {
       this.userService.getUser(this.iduser).subscribe(
         (user: User) => {
-          this.AddUserform.patchValue(user); // Populate the form with user data
+          this.AddUserform.patchValue(user);
           console.log(user);
         },
       );

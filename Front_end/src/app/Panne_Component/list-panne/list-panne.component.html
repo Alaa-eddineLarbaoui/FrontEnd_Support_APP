@@ -1,0 +1,21 @@
+<div class="user-container container mt-5">
+  <h2 class="text-center mb-4">Liste des Pannes</h2>
+  <div class="row">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let panne of listpanne">
+      <div class="card user-card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{panne.name}}</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>ID Panne:</strong> {{panne.idPanne}}</li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <div class="Buttons">
+            <button class="btn btn-danger btn-sm" (click)="deletepanne(panne.idPanne)">Supprimer</button>
+            <a class="btn btn-primary btn-sm" [routerLink]="'/updatePanne/' + panne.idPanne">Update</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

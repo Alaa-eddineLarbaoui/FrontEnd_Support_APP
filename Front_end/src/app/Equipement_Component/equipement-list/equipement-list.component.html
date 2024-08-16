@@ -2,7 +2,7 @@
   <h2 class="text-center mb-4">Liste des Équipements</h2>
   <div class="row">
     <div class="col-md-6 col-lg-4 mb-4" *ngFor="let equipement of listEquipement">
-      <div class="card h-100">
+      <div class="card h-100 equipement-card">
         <div class="card-body">
           <h5 class="card-title">{{equipement.name}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{equipement.type}}</h6>
@@ -13,8 +13,9 @@
             <li class="list-group-item"><strong>Status:</strong> {{equipement.status}}</li>
           </ul>
         </div>
-        <div class="card-footer text-right">
+        <div class="card-footer d-flex justify-content-between">
           <button class="btn btn-danger" (click)="deleteEquipement(equipement.id)">Supprimer</button>
+          <a class="btn btn-primary" [routerLink]="'/updateEquip/' + equipement.id">Modifier</a>
         </div>
       </div>
     </div>

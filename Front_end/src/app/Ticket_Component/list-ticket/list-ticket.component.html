@@ -1,0 +1,23 @@
+<div class="user-container container mt-5">
+  <h2 class="text-center mb-4">Liste des Utilisateurs</h2>
+  <div class="row">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let ticket of listTicket">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ticket.id_Ticket}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ticket.etatTicket}}</h6>
+
+        </div>
+        <div class="card-footer text-right">
+          <div class="Buttons">
+            <div>
+            </div>
+
+          </div>
+        <!--  <button *ngIf="ticket.toString() === 'PENDING'" (click)="assignerTicket()" class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2">  -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,6 @@
   <form [formGroup]="Addequiform" (ngSubmit)="saveUser()" class="mt-4">
 
     <div class="form-group">
-      <label for="id" type="hidden">ID:</label>
       <input id="id" formControlName="id" type="hidden" class="form-control">
     </div>
 
@@ -30,7 +29,6 @@
     <div class="form-group">
       <label for="status">Status:</label>
       <select id="status" formControlName="status" class="form-control">
-
         <option value="ACTIVE">Active</option>
         <option value="OBSOLETE">Inactive</option>
         <option value="REPAIR">In Repair</option>
